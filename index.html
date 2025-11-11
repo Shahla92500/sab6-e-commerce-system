@@ -7,7 +7,16 @@
     <title>e-commerce-system</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/index.ts"></script>
+    <h1> SBA6</h1>
+       <form id="controls">
+        <label>
+          Limit:
+          <input id="limitInput" type="number" min="1" max="100" value="10" />
+        </label>
+        <button id="loadBtn" type="submit" >Load Products</button>
+      </form>
+      <div id="status" aria-live="polite"></div>
+      <ul id="productList" class="grid"></ul>
+      <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

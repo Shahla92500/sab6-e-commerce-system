@@ -5,10 +5,10 @@ import { handleAPIError, APIError } from "../utils/errorHandler";
 const BASE_URL : string = 'https://dummyjson.com';
 
 /** GET all products, with a limit */
-export async function getProducts(limit: number = 30) {
+export async function getProducts(limit: number , skip:number) {
     try {
         // send request
-        const response = await fetch(`${BASE_URL}/products?limit=${limit}`);
+        const response = await fetch(`${BASE_URL}/products?limit=${limit}&skip=${skip}`);
 
         // check if response is NOT ok, then throw and API Error
         if (!response.ok) {
