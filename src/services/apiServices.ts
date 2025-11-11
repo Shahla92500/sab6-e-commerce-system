@@ -1,11 +1,11 @@
+import { Product } from "../models/Product";
 
-import  {Product} from "../models/Product";
 import { handleAPIError, APIError } from "../utils/errorHandler";
 
 const BASE_URL : string = 'https://dummyjson.com';
 
 /** GET all products, with a limit */
-export async function getProducts(limit: number , skip:number) {
+export async function getProducts(limit: number , skip:number): Promise<Product[]> {
     try {
         // send request
         const response = await fetch(`${BASE_URL}/products?limit=${limit}&skip=${skip}`);
@@ -14,30 +14,20 @@ export async function getProducts(limit: number , skip:number) {
         if (!response.ok) {
             throw new APIError('Error fetching data from API.', response.status);
         }
+        //get the data (objects)
         const data = await response.json();
-        
-        return data.products;
+        const products: Product[] = data.products.map((p:any) =>
+        new Product(p.id, p.title, p.price, p.category, p.discountPercentage)
+        );
+        return products;
+        // return data.products;
 
     } catch (error: APIError | any) {
         handleAPIError(error);
+        return[];
     }
 }
-// function getProductDetails(limit: number): Promise<Product[]>{
-    //try }
 
-//     return new Promise<Product>((resolve,_reject)=>{
-        // const response = await fetch(BASE_URL);
-        // setTimeout(() =>resolve(product), 1000)
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-
-//     })
-//  } catch (error) {
-//    console.error("Error fetching products:", error);
- //   return []; // Return an empty array or handle the error as needed
- // }
-// }
 
 
 

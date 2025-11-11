@@ -4,7 +4,7 @@ import { handleAPIError, type APIError } from "./utils/errorHandler";
 
 async function main(){
   try{
-    const apiProducts = await apiService.getProducts(30);
+    const apiProducts = await apiService.getProducts(30,10) ?? [];
     if (!apiProducts) return;
     const products : Product[] = apiProducts.map(
         (p:any) => new Product(p.id, p.title, p.price, p.category , p.discountPercentage)

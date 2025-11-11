@@ -1,3 +1,6 @@
+body{
+  background-color: rgb(0, 255, 251);
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -94,3 +97,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+#product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr)); /* 4 columns */
+  gap: 12px;                                           /* space between cells */
+  margin-top: 8px;
+ 
+}
+
+.product-cell {                 /* each “cell” (no borders) */
+  padding: 10px;
+  list-style: none;
+}
+
+.product-row { display: contents; } 
+.product-title { font-weight: 600; margin-right: 6px; }
+.product-price { color: #666; margin-right: 8px;}
+.product-input { width: 90px; margin-right: 6px; }
+.product-btn { padding: 4px 8px; }

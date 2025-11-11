@@ -14,6 +14,8 @@ export class Product {
         this. discountPercentage = discountPercentage;
     }
 
+ //defining the methods for Product class:
+
     displayDetails(): string {
         return `(title: ${this.title}) -category: ${this.category} costs $${this.price.toFixed(2)}.`;
     }
@@ -29,11 +31,4 @@ export class Product {
         return (this.price * (taxRate + 1));
     }
 
-
-    // set setPrice(newBasePrice: number) {
-    // this.price = newBasePrice;
-    // }
-    // calculateDiscount (discount:number):number{
-    //     return this.price * discount;
-    // }
 }

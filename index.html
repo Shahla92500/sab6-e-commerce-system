@@ -5,18 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>e-commerce-system</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <div >
+    <div style="display: flex; direction: row;">
     <h1> SBA6</h1>
+    
        <form id="controls">
+        
         <label>
           Limit:
           <input id="limitInput" type="number" min="1" max="100" value="10" />
         </label>
         <button id="loadBtn" type="submit" >Load Products</button>
       </form>
+    </div>   
+    <div>
       <div id="status" aria-live="polite"></div>
+
       <ul id="productList" class="grid"></ul>
+            <div id="product-grid"></div>
       <script type="module" src="/src/main.ts"></script>
+    </div>
+    </div>
   </body>
 </html>
